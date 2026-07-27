@@ -16,6 +16,7 @@
 
 {% include fragment-resourceTable.html lang="{{[lang]}}" %}
 
+{% unless '{{[type]}}' == 'SearchParameter' %}
 {%if site.data.resources[resource_].description %}
 <p>
 {{site.data.resources[resource_].descriptionlang['{{[lang]}}']|markdownify}}
@@ -26,6 +27,7 @@
 {{site.data.resources[resource_].purposelang['{{[lang]}}']|markdownify}}
 </p>
 {% endif %}
+{% endunless %}
   <!-- insert intro if present -->
   {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' lang="{{[lang]}}" %}
 
